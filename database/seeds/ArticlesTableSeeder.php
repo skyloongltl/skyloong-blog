@@ -2,19 +2,26 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Article;
+use App\Models\Category;
 
 class ArticlesTableSeeder extends Seeder
 {
     public function run()
     {
-        $articles = factory(Article::class)->times(50)->make()->each(function ($article, $index) {
-            if ($index == 0) {
-                // $article->field = 'value';
-            }
+        $category_ids = Category::all()->pluck('id')->toArray();
+
+        $faker = app(Faker\Generator::class);
+
+        $articles = factory(Article::class)
+                        ->times(100)
+                        ->make()
+                        ->each(function ($article, $index)
+                        use ($category_ids, $faker)
+        {
+            $article->category_id = $faker->randomElement($category_ids);
         });
 
         Article::insert($articles->toArray());
     }
-
 }
 

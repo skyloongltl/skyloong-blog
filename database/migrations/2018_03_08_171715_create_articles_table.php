@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateArticlesTable extends Migration 
@@ -11,9 +12,8 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('title')->index();
             $table->text('body');
-            $table->integer('tags_id')->unsigned()->index();
             $table->integer('category_id')->unsigned()->index();
-            $table->integer('reply_count')->unsigned()->defult(0);
+            $table->integer('reply_count')->unsigned()->default(0);
             $table->integer('view_count')->unsigned()->default(0);
             $table->tinyInteger('is_top')->unsigned()->default(0);
             $table->text('excerpt');
