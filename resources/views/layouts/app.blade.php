@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'skyloong')</title>
+    <title>@yield('title', 'skyloong的博客')</title>
 
     <!-- styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
