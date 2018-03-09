@@ -1,9 +1,10 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
-        <div class="nabar-header">
+        <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle collapsed" data-toogle="collapse" data-target="#app-navbar-collapse">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                 <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
@@ -15,8 +16,17 @@
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <ul class="nav navbar-nav">
-
+                @foreach($categories as $category)
+                    <li class="{{ is_active('categories.show', [$category->id]) }}"><a href="{{ route('categories.show', [$category->id]) }}">{{ $category->name }}</a> </li>
+                @endforeach
             </ul>
+            {{--<ul class="nav navbar-nav">
+                <li class="active"><a href="{{ route('articles.index') }}">首页</a></li>
+                <li><a href="{{ route('categories.show', 1) }}">PHP</a></li>
+                <li><a href="{{ route('categories.show', 1) }}">Linux</a></li>
+                <li><a href="{{ route('categories.show', 3) }}">前端</a></li>
+                <li><a href="{{ route('categories.show', 4) }}">乱七八糟</a></li>
+            </ul>--}}
 
             <ul class="nav navbar-nav navbar-right">
                 @guest

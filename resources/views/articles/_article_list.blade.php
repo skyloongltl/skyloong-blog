@@ -19,7 +19,7 @@
                             <span class="timeago" title="创建时间">{{ $article->updated_at }}</span>
                         </li>
                         <li class="col-xs-5 col-md-2 col-lg-2">
-                            <a href="#" title="{{ $article->category->name }}">
+                            <a href="{{ route('categories.show', [$article->category->id]) }}" title="{{ $article->category->name }}">
                                 <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                                 {{ $article->category->name }}
                             </a>

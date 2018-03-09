@@ -8408,7 +8408,9 @@ body {
 }
 
 .articles-index-page .article-list ul,
-.articles-index-page .article-list li {
+.articles-index-page .article-list li,
+.categories-show-page .article-list ul,
+.categories-show-page .article-list li {
   list-style: none;
 }
 
