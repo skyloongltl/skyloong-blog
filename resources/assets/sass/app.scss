@@ -65,3 +65,11 @@ body {
     cursor: pointer;
   }
 }
+
+.articles-index-page {
+  .article-list {
+    ul,li {
+      list-style: none;
+    }
+  }
+}

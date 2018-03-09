@@ -8407,3 +8407,8 @@ body {
   cursor: pointer;
 }
 
+.articles-index-page .article-list ul,
+.articles-index-page .article-list li {
+  list-style: none;
+}
+

@@ -32,5 +32,18 @@ class TagsArticlesTableSeeder extends Seeder
                             });
 
         TagArticle::insert($tags_articles->toArray());
+
+        reset($article_ids);
+        $tags_articles = factory(TagArticle::class)
+                            ->times(100)
+                            ->make()
+                            ->each(function ($tagArticle, $index)
+                                use ($tag_ids, $article_ids, $faker) {
+
+                                    $tagArticle->tag_id = $faker->randomElement($tag_ids);
+                                    $tagArticle->article_id = $faker->randomElement($article_ids);
+                            });
+
+        TagArticle::insert($tags_articles->toArray());
     }
 }

@@ -33,7 +33,7 @@ class UsersTableSeeder extends Seeder
 
         $user = User::find(1);
         $user->name = 'skyloong';
-        $user->email = 'skyloong@gmial.com';
+        $user->email = 'skyloong@gmail.com';
         $user->avatar = Storage::url($avatar_list[0]);
         $user->save();
     }
