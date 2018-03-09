@@ -16,7 +16,7 @@
                         </li>
                         <li class="col-xs-7 col-md-3 col-lg-3">
                             <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                            <span class="timeago" title="创建时间">{{ $article->updated_at }}</span>
+                            <span class="timeago" title="创建时间">{{ $article->created_at }}</span>
                         </li>
                         <li class="col-xs-5 col-md-2 col-lg-2">
                             <a href="{{ route('categories.show', [$article->category->id]) }}" title="{{ $article->category->name }}">

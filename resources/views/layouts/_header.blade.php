@@ -16,7 +16,8 @@
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <ul class="nav navbar-nav">
-                @foreach($categories as $category)
+                <li class="{{ is_active('articles.index') }}"><a href="{{ route('articles.index') }}">首页</a></li>
+                @foreach(\App\Models\Category::all() as $category)
                     <li class="{{ is_active('categories.show', [$category->id]) }}"><a href="{{ route('categories.show', [$category->id]) }}">{{ $category->name }}</a> </li>
                 @endforeach
             </ul>

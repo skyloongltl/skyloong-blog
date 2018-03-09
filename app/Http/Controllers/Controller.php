@@ -11,9 +11,4 @@ use App\Models\Category;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
-    protected function getCategories()
-    {
-        return Category::all();
-    }
 }
