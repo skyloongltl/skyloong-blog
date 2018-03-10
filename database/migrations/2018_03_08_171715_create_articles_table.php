@@ -11,7 +11,7 @@ class CreateArticlesTable extends Migration
 		Schema::create('articles', function(Blueprint $table) {
             $table->increments('id');
             $table->string('title')->index();
-            $table->text('body');
+            $table->mediumText('body');
             $table->string('image')->default('');
             $table->string('section_article')->default('');
             $table->integer('category_id')->unsigned()->index();

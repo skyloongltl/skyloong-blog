@@ -97,25 +97,26 @@ class ArticlesController extends Controller
 		return redirect()->route('articles.index')->with('message', 'Deleted successfully.');
 	}
 
-	public function uploadImage(Request $request, ImageUploadHandler $uploader)
+    public function uploadImage(Request $request, ImageUploadHandler $uploader)
     {
+
         $data = [
-            'success' => false,
-            'msg' => '上传失败',
+            'success'   => false,
+            'msg'       => '上传失败!',
             'file_path' => ''
         ];
 
-        if($file = $request->upload_file){
-            $result = $uploader->save($request->upload_file, 'articles', '',1024);
+        if ($file = $request->upload_file) {
 
-            if($result){
+            $result = $uploader->save($request->upload_file, 'articles', \Auth::id(), 1024);
+
+            if ($result) {
                 $data['file_path'] = $result['path'];
-                $data['msg'] = '上传成功';
-                $data['success'] = true;
+                $data['msg']       = "上传成功!";
+                $data['success']   = true;
             }
         }
-
-        return true;
+        return $data;
     }
 
 }
