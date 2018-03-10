@@ -9,13 +9,5 @@ use App\Models\Article;
 
 class ArticleObserver
 {
-    public function creating(Article $article)
-    {
-        //
-    }
 
-    public function updating(Article $article)
-    {
-        //
-    }
 }

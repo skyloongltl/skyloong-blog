@@ -12,13 +12,13 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->string('title')->index();
             $table->text('body');
-            $table->string('image');
-            $table->text('section_article');
+            $table->string('image')->default('');
+            $table->string('section_article')->default('');
             $table->integer('category_id')->unsigned()->index();
             $table->integer('reply_count')->unsigned()->default(0);
             $table->integer('view_count')->unsigned()->default(0);
             $table->tinyInteger('is_top')->unsigned()->default(0);
-            $table->text('excerpt');
+            $table->text('excerpt')->nullable();
             $table->string('slug')->nullable();
             $table->timestamps();
         });

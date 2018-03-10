@@ -13,15 +13,24 @@ body {
   font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial,sans-serif;
 }
 
+
 /* header */
 
-.navbar-static-top {
+.navbar-fixed-top {
   border-color: #e7e7e7;
   background-color: #fff;
   box-shadow: 0px 1px 11px 2px rgba(42, 42, 42, 0.1);
   border-top: 4px solid #00b5ad;
   margin-bottom: 40px;
   margin-top: 0px;
+}
+
+#app {
+  .container {
+      .content {
+        margin-top: 80px;
+      }
+  }
 }
 
 /* footer */
@@ -70,6 +79,27 @@ body {
   .article-list {
     ul,li {
       list-style: none;
+    }
+  }
+}
+
+/* Article show Page */
+
+//@import "article_body";
+
+.articles-show-page {
+  .article-content {
+    ul, li {
+      list-style: none;
+    }
+    .panel {
+      padding: 15px;
+
+      h1 {
+        margin: 0.4em auto 0.6em;
+        font-size: 28px;
+        line-height: 38px;
+      }
     }
   }
 }
