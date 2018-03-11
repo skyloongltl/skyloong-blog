@@ -11,11 +11,6 @@ class ReplyObserver
 {
     public function creating(Reply $reply)
     {
-        //
-    }
-
-    public function updating(Reply $reply)
-    {
-        //
+        $reply->content = clean($reply->content, 'user_article_body');
     }
 }

@@ -11,7 +11,7 @@
 
             <div class="row panel panel-default article-reply">
                 <div class="panel-body">
-                    @include('articles._reply_box', ['article' => $article])
+                    @includeWhen(Auth::check(), 'articles._reply_box', ['article' => $article])
                     @include('articles._reply_list', ['replies' => $article->replies()->with('user')->get()])
                 </div>
             </div>

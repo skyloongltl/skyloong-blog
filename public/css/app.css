@@ -8449,3 +8449,11 @@ body {
   color: #b3b3b3;
 }
 
+.article-reply .reply-box textarea {
+  resize: none;
+}
+
+.article-reply .reply-box textarea:focus {
+  outline: none;
+}
+

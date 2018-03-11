@@ -118,4 +118,14 @@ body {
     font-size: .9em;
     color: #b3b3b3;
   }
+
+  .reply-box {
+    textarea {
+      resize: none;
+    }
+
+    textarea:focus {
+      outline: none;
+    }
+  }
 }
