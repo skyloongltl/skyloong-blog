@@ -8435,3 +8435,17 @@ body {
   line-height: 38px;
 }
 
+.article-reply hr {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.article-reply a {
+  color: inherit;
+}
+
+.article-reply .meta {
+  font-size: .9em;
+  color: #b3b3b3;
+}
+
