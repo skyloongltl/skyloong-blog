@@ -24,6 +24,7 @@
     <div class="container">
 
         <div class="content">
+            @include('layouts._message')
             @yield('content')
         </div>
 

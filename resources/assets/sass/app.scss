@@ -5,6 +5,10 @@
 // Variables
 @import "variables";
 
+//font-awesome
+//@import "~font-awesome/scss/font-awesome";
+//@import "node_modules/font-awesome/scss/font-awesome";
+
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
@@ -128,4 +132,13 @@ body {
       outline: none;
     }
   }
+
+  .reply-list {
+    .reply-content {
+      TEXT-JUSTIFY: inter-ideograph;
+      TEXT-ALIGN: justify;
+      word-wrap: break-word
+    }
+  }
+
 }

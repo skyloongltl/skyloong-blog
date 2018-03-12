@@ -8457,3 +8457,9 @@ body {
   outline: none;
 }
 
+.article-reply .reply-list .reply-content {
+  TEXT-JUSTIFY: inter-ideograph;
+  TEXT-ALIGN: justify;
+  word-wrap: break-word;
+}
+

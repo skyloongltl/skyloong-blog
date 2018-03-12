@@ -13,3 +13,8 @@ function is_active($route_name, $params = [])
         return 'active';
     }
 }
+
+function replace($matches)
+{
+    return '<em style="color:#ff020a">' . $matches[0] . '</em>';
+}

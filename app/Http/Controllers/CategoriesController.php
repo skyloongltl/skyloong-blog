@@ -11,7 +11,7 @@ class CategoriesController extends Controller
 {
     public function show(Category $category)
     {
-        $articles = Article::where('category_id', $category->id)->orderBy('created_at', 'desc')->with('tags', 'category')->paginate(15);
+        $articles = Article::select('id', 'title', 'image', 'section_article', 'created_at', 'category_id')->where('category_id', $category->id)->orderBy('created_at', 'desc')->with('tags', 'category')->paginate(15);
         return view('articles.index', compact('articles', 'category'));
     }
 }

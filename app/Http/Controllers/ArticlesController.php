@@ -19,14 +19,14 @@ class ArticlesController extends Controller
 
 	public function index()
 	{
-		$articles = Article::orderBy('created_at', 'desc')->with('category', 'tags')->paginate(15);
+		$articles = Article::select('id', 'title', 'image', 'section_article', 'category_id', 'created_at')->orderBy('created_at', 'desc')->with('category', 'tags')->paginate(15);
 		return view('articles.index', compact('articles'));
 	}
 
     public function show(Article $article)
     {
-        $prev_article = Article::where('id', '<', $article->id)->orderBy('id', 'desc')->first();
-        $next_article = Article::where('id', '>', $article->id)->first();
+        $prev_article = Article::select('id', 'title')->where('id', '<', $article->id)->orderBy('id', 'desc')->first();
+        $next_article = Article::select('id', 'title')->where('id', '>', $article->id)->first();
         return view('articles.show', compact('article', 'prev_article', 'next_article'));
     }
 
@@ -50,7 +50,7 @@ class ArticlesController extends Controller
 	    $article->section_article = substr($article->body, 0, 200);
 	    $article->save();
 
-	    $tags_name = explode(':', $request->tags);
+	    $tags_name = array_unique(explode(':', $request->tags));
 	    $existed_tags = Tag::whereIn('name', $tags_name)->get();
 	    $existed_tag_names = [];
 	    if($existed_tags->isNotEmpty())

@@ -49,11 +49,11 @@
                         {{ $prev_article->title }}
                     </a>
                 @else
-                    没有了
+                    <span>没有了</span>
                 @endif
             </div>
             <br>
-            <div class="next">
+            <div class="next" id="next">
                 <span class="btn btn-default btn-xs" role="button" disabled="disabled">
                     下一篇
                 </span>
@@ -63,7 +63,7 @@
                         {{ $next_article->title }}
                     </a>
                 @else
-                    没有了
+                    <span>没有了</span>
                 @endif
             </div>
 

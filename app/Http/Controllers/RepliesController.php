@@ -17,7 +17,8 @@ class RepliesController extends Controller
 
 	public function store(ReplyRequest $request, Reply $reply)
 	{
-		$reply->content = $request->content;
+	    $reply->content = $request->content;
+		//preg_match_all("|@[\w\x{4e00}-\x{9fa5}]+|u", $request->content, $match);
 		$reply->user_id = Auth::id();
 		$reply->article_id = $request->article_id;
 		$reply->save();
@@ -25,11 +26,12 @@ class RepliesController extends Controller
 		return redirect()->route('articles.show', $request->article_id)->with('message', '回复成功');
 	}
 
-	public function destroy(Reply $reply)
+	public function destroy(Request $request, Reply $reply)
 	{
-		$this->authorize('destroy', $reply);
+		//$this->authorize('destroy', $reply);
 		$reply->delete();
 
-		return redirect()->route('replies.index')->with('message', '删除成功');
+		return redirect()->route('articles.show', $reply->article->id)->with('message', '删除成功');
 	}
+
 }
