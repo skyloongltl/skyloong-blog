@@ -5,7 +5,7 @@
         </a>
     </div>
 
-    <a id="btn-sw"></a>
+    <a id="btn-sw"><i class="fa fa-angle-up fa-5x" ></i> </a>
     {{-- <div id="btn-sw" onclick='show()'></div> --}}
 </div>
 
@@ -39,6 +39,10 @@
     </div>
 </div>
 @endif
+
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
+@stop
 
 @section('scripts')
     <script type="text/javascript">

@@ -135,12 +135,13 @@ class ArticlesController extends Controller
         }
 
         $diff_tags = array_diff($tags_name, $existed_tag_names);
-        foreach ($diff_tags as $diff_tag)
-        {
-            $id = Tag::insertGetId(
-                ['name' => mb_strtolower($diff_tag)]
-            );
-            $article->tags()->attach($id);
+        if(!empty($diff_tags)) {
+            foreach ($diff_tags as $diff_tag) {
+                $id = Tag::insertGetId(
+                    ['name' => mb_strtolower($diff_tag)]
+                );
+                $article->tags()->attach($id);
+            }
         }
     }
 

@@ -8499,3 +8499,10 @@ body {
   z-index: 1;
 }
 
+#sidebar #btn-sw i {
+  position: fixed;
+  bottom: 30px;
+  right: 37.5px;
+  color: white;
+}
+

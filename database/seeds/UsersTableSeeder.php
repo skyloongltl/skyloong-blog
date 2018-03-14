@@ -36,5 +36,8 @@ class UsersTableSeeder extends Seeder
         $user->email = 'skyloong@gmail.com';
         $user->avatar = Storage::url($avatar_list[0]);
         $user->save();
+
+        // 初始化用户角色，将 1 号用户指派为『站长』
+        $user->assignRole('Founder');
     }
 }
