@@ -41,9 +41,9 @@
 
                                     <div class="form-group">
                                         <select class="form-control" name="category_id" required>
-                                            <option value="" hidden disabled {{ $topic->id ? '' : 'selected' }}>请选择分类</option>
+                                            <option value="" hidden disabled {{ $article->id ? '' : 'selected' }}>请选择分类</option>
                                             @foreach ($categories as $value)
-                                                <option value="{{ $value->id }}" {{ $topic->category_id == $value->id ? 'selected' : '' }}>{{ $value->name }}</option>
+                                                <option value="{{ $value->id }}" {{ $article->category_id == $value->id ? 'selected' : '' }}>{{ $value->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -51,8 +51,8 @@
                                     <div class="form-group">
                                         <select class="form-control" name="is_top" required>
                                             <option value="" hidden disabled selected>是否置顶</option>
-                                            <option value="1">是</option>
-                                            <option value="0">否</option>
+                                            <option value="1" {{ $article->is_top == 1 ? 'selected' : '' }}>是</option>
+                                            <option value="0" {{ $article->is_top == 0 ? 'selected' : '' }}>否</option>
                                         </select>
                                     </div>
 

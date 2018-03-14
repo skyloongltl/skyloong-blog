@@ -18,3 +18,17 @@ function replace($matches)
 {
     return '<em style="color:#ff020a">' . $matches[0] . '</em>';
 }
+
+function selectColor()
+{
+    static $colors = ['skyblue', '#FFCC99', '#FF6666'];
+
+    $color = current($colors);
+    if($color === false){
+        $color  = reset($colors);
+        next($colors);
+        return $color;
+    }
+    next($colors);
+    return $color;
+}

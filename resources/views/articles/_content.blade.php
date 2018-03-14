@@ -6,29 +6,27 @@
 
         <div class="col-xs-12 col-lg-12 col-sm-12 article-meta text-center">
             <ul class="row">
-                <li class="col-xs-5 col-md-2 col-lg-3">
+                <li class="col-xs-4 col-md-2 col-lg-2">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     <span>skyloong</span>
                 </li>
-                <li class="col-xs-7 col-md-3 col-lg-3">
+                <li class="col-xs-8 col-md-3 col-lg-4">
                     <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
                     <span class="timeago" title="创建时间">{{ $article->created_at }}</span>
                 </li>
                 <li class="col-xs-5 col-md-2 col-lg-2">
+                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                     <a href="{{ route('categories.show', [$article->category->id]) }}"
                        title="{{ $article->category->name }}">
-                        <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                         {{ $article->category->name }}
                     </a>
                 </li>
                 <li class="col-xs-7 col-md-5 col-lg-4">
-                    <a href="#">
-                        <span class="glyphicon glyphicon-tag"></span>
-                        @foreach($article->tags as $tag)
-                            {{ $tag->name }}
-                            &nbsp;
-                        @endforeach
-                    </a>
+                    <span class="glyphicon glyphicon-tag"></span>
+                    @foreach($article->tags as $tag)
+                        <a href="{{ route('tags.show', [$tag->id]) }}"> {{ $tag->name }} </a>
+                        &nbsp;
+                    @endforeach
                 </li>
             </ul>
         </div>

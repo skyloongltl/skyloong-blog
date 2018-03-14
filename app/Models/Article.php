@@ -4,6 +4,8 @@ namespace App\Models;
 
 class Article extends Model
 {
+    use Traits\TopArticleHelper;
+
     protected $fillable = ['title', 'body', 'category_id', 'is_top', 'excerpt', 'slug',];
 
     public function category()
@@ -19,5 +21,10 @@ class Article extends Model
     public function replies()
     {
         return $this->hasMany(Reply::class);
+    }
+
+    public function scopeGetTop()
+    {
+        return $this->select('id', 'title')->where('is_top', 1)->orderBy('id', 'desc')->take(10)->get();
     }
 }

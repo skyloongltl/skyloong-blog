@@ -8414,7 +8414,9 @@ body {
 .articles-index-page .article-list ul,
 .articles-index-page .article-list li,
 .categories-show-page .article-list ul,
-.categories-show-page .article-list li {
+.categories-show-page .article-list li,
+.tags-show-page .article-list ul,
+.tags-show-page .article-list li {
   list-style: none;
 }
 
@@ -8461,5 +8463,39 @@ body {
   TEXT-JUSTIFY: inter-ideograph;
   TEXT-ALIGN: justify;
   word-wrap: break-word;
+}
+
+.sidebar .tag-list {
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 0px;
+  margin-right: 0px;
+  padding-right: 0px;
+}
+
+.sidebar .tag-list li {
+  float: left;
+  margin-bottom: 5px;
+}
+
+.sidebar .tag-list .tag-name {
+  color: #ffffff;
+  height: 20px;
+  border-radius: 5px;
+  margin: 2px 2px 2px 2px;
+  padding: 3px 5px 3px 5px;
+  cursor: pointer;
+}
+
+#sidebar #btn-sw {
+  position: fixed;
+  height: 60px;
+  width: 60px;
+  right: 30px;
+  bottom: 30px;
+  background: skyblue;
+  border-radius: 50px;
+  outline: none;
+  z-index: 1;
 }
 

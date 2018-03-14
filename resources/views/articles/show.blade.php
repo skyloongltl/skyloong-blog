@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-9 col-lg-9 col-md-9 col-sm-9 article-content">
+        <div class="col-xs-12 col-lg-8 col-md-8 col-sm-12 article-content">
             @include('articles._content', ['article' => $article])
 
             <div class="row panel panel-default article-reply">
@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div class="col-xs-3 col-lg-3 col-md-9 col-sm-3 sidebar">
+        <div class="hidden-xs col-lg-4 col-md-4 hidden-sm sidebar">
             @include('articles._sidebar')
         </div>
     </div>
