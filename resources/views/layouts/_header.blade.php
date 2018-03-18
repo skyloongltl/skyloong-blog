@@ -43,10 +43,20 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            @can('manage_contents')
+                                <li>
+                                    <a href="{{ route('admin.home.index') }}">
+                                        <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+                                        管理后台
+                                    </a>
+                                </li>
+                            @endcan
+
                             <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">
+                                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                                     退出登录
                                 </a>
 

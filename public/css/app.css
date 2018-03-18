@@ -8506,3 +8506,21 @@ body {
   color: white;
 }
 
+/* Admin */
+
+.admin-home-index-page .content {
+  margin-top: 70px;
+}
+
+.admin-home-index-page .content table tr td {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+
+.admin-home-index-page .content table .head td {
+  text-align: center;
+  height: 20px;
+  line-height: 20px;
+}
+

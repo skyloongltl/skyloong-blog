@@ -11,7 +11,7 @@ Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('re
 Route::post('register', 'Auth\RegisterController@register');
 
 //Password Reset Routes...
-Route::get('password/reset', 'AuthForgotPasswordController@showLinkRequestionForm')->name('password.request');
+//Route::get('password/reset', 'AuthForgotPasswordController@showLinkRequestionForm')->name('password.request');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
@@ -23,3 +23,23 @@ Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 Route::post('upload_image', 'ArticlesController@uploadImage')->name('articles.upload_image');
 Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
 Route::resource('tags', 'TagsController', ['only' => ['show']]);
+
+
+//Admin
+Route::prefix('admin')->namespace('Admin')->group(function () {
+    Route::get('/', 'HomeController@index')->name('admin.home.index');
+
+   //User
+    Route::resource('users', 'UsersController',
+        [
+            'names' => [
+                'create' => 'admin.users.create',
+                'store' => 'admin.users.store',
+                'edit' => 'admin.users.edit',
+                'update' => 'admin.users.update',
+                'destroy' => 'admin.users.destroy'
+                ],
+            'only' => ['create', 'store', 'edit', 'update', 'destroy']
+        ]);
+    Route::post('users/batch_destroy', 'UsersController@batchDestroy')->name('admin.users.batch-destroy');
+});

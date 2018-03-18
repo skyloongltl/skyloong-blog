@@ -13,8 +13,6 @@
 
                     {{-- 删除回复按钮 --}}
                     @auth
-                        {{-- TODO  验证是否有站长权限 --}}
-                        @if(Auth::user())
                             <span class="meta pull-right">
                                 <a href="#next"
                                    onclick="document.getElementById('reply-textarea').value += '@' + '{{ $reply->user->name }}' + ' '"
@@ -22,10 +20,10 @@
                                      <i class="fa fa-reply" aria-hidden="true"></i>
                                 </a>
                             </span>
+                        @can('destroy', $reply)
                             <span class="meta pull-right point">
                                 <span>&nbsp;•&nbsp;</span>
                             </span>
-
                             <span class="meta pull-right">
                                 <a href="{{ route('replies.destroy', [$reply->id]) }}"
                                    onclick="event.preventDefault();
@@ -37,7 +35,7 @@
                                     {{ method_field('DELETE') }}
                                 </form>
                             </span>
-                        @endif
+                        @endcan
                     @endauth
                 </div>
                 <div class="reply-content">
