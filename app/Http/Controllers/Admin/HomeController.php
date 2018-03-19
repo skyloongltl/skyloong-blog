@@ -11,6 +11,7 @@ class HomeController extends Controller
     public function index()
     {
         $users = User::select('id', 'avatar', 'name', 'email')->paginate(20);
+        $users->page = 20;
 
         return view('admin.home.index', compact('users'));
     }

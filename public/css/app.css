@@ -8508,6 +8508,11 @@ body {
 
 /* Admin */
 
+.admin-home-index-page .navbar-fixed-top ul hr {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
 .admin-home-index-page .content {
   margin-top: 70px;
 }
@@ -8522,5 +8527,26 @@ body {
   text-align: center;
   height: 20px;
   line-height: 20px;
+}
+
+.admin-home-index-page .content .user-list .operation {
+  margin: 10px 15px;
+  -webkit-box-shadow: 0px 0px 1px #2E332F;
+  box-shadow: 0px 0px 1px #2E332F;
+}
+
+.admin-home-index-page .content .user-list .operation a {
+  margin: 5px 5px 5px 5px;
+}
+
+.admin-home-index-page .content .user-list .operation .btn-default {
+  padding: 2px 5px;
+}
+
+.admin-home-index-page .content .user-list .operation span input {
+  padding-left: 2px;
+  border: 1px solid #C0C0C0;
+  width: 30px;
+  height: 28px;
 }
 
