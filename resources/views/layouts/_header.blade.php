@@ -42,7 +42,7 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
-                        <ul class="dropdown-menu" role="menu">
+                        <ul class="dropdown-menu" role="menu" style="min-width: 100%">
                             @can('manage_contents')
                                 <li>
                                     <a href="{{ route('admin.home.index') }}">

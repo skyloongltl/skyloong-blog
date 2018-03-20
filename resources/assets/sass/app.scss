@@ -206,7 +206,7 @@ body {
 
 
 /* Admin */
-.admin-home-index-page {
+.admin-home-index-page, .admin-users-search-page, .admin-roles-index-page, .admin-roles-search-page, .admin-permissions-index-page {
   .navbar-fixed-top {
     ul {
       hr {
@@ -258,3 +258,4 @@ body {
     }
   }
 }
+

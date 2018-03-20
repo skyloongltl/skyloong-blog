@@ -53,7 +53,7 @@ class RegisterController extends Controller
                 'required',
                 'string',
                 'between:[1,30]',
-                'regex:/^@[\w\u4e00-\u9fa5]+$/',
+                'regex:/^[\w\x{4e00}-\x{9fa5}]+$/u',
                 ],
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',

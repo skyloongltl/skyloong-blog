@@ -29,17 +29,44 @@ Route::resource('tags', 'TagsController', ['only' => ['show']]);
 Route::prefix('admin')->namespace('Admin')->group(function () {
     Route::get('/', 'HomeController@index')->name('admin.home.index');
 
-   //User
+    //User
     Route::resource('users', 'UsersController',
         [
             'names' => [
-                'create' => 'admin.users.create',
-                'store' => 'admin.users.store',
-                'edit' => 'admin.users.edit',
-                'update' => 'admin.users.update',
                 'destroy' => 'admin.users.destroy'
                 ],
-            'only' => ['create', 'store', 'edit', 'update', 'destroy']
+            'only' => ['destroy']
         ]);
     Route::post('users/batch_destroy', 'UsersController@batchDestroy')->name('admin.users.batch-destroy');
+    Route::post('users/update', 'UsersController@update')->name('admin.users.update');
+    Route::post('users/search', 'UsersController@search')->name('admin.users.search');
+
+    //Roles
+    Route::resource('roles', 'RolesController',
+        [
+            'names' => [
+                'store' => 'admin.roles.store',
+                'destroy' => 'admin.roles.destroy'
+            ],
+            'only' => ['store', 'destroy']
+        ]
+    );
+
+    Route::get('roles', 'RolesController@index')->name('admin.roles.index');
+    Route::post('roles/update', 'RolesController@update')->name('admin.roles.update');
+    Route::post('roles/search', 'RolesController@search')->name('admin.roles.search');
+
+    //Permissions
+    Route::resource('permissions', 'PermissionsController',
+        [
+            'names' => [
+                'index' => 'admin.permissions.index',
+                'store' => 'admin.permissions.store',
+                'destroy' => 'admin.permissions.destroy'
+            ],
+            'only' => ['index', 'store', 'destroy']
+        ]
+    );
+    Route::post('permissions/update', 'PermissionsController@update')->name('admin.permissions.update');
+    Route::post('permissions/search', 'PermissionsController@search')->name('admin.permissions.search');
 });

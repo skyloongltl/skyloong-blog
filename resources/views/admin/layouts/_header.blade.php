@@ -20,19 +20,19 @@
                     </a>
                     <ul class="dropdown-menu" style="min-width: 100%">
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.home.index') }}">
                                 用户
                             </a>
                         </li>
                         <hr>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.roles.index') }}">
                                 角色
                             </a>
                         </li>
                         <hr>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.permissions.index') }}">
                                 权限
                             </a>
                         </li>
