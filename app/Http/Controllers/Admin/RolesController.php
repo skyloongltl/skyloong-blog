@@ -3,15 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class RolesController extends Controller
+class RolesController extends adminBaseController
 {
     public function index()
     {
-        $roles = Role::select('id', 'name')->paginate(20);
+        $roles = Role::select('id', 'name')->with('permissions')->paginate(20);
         $roles->page = 20;
         return view('admin.roles.index', compact('roles'));
     }

@@ -46,7 +46,7 @@
                     </a>
                     <ul class="dropdown-menu" style="min-width: 100%">
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.articles.index') }}">
                                 文章
                             </a>
                         </li>

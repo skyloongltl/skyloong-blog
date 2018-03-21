@@ -19,17 +19,15 @@
                 <td>
                     @php
                         $names = [];
-                        $ids = [];
-                        foreach ($user->roles as $role) {
-                            $names[] = $role->name;
-                            $ids[] = $role->id;
+                        foreach ($user->getRoleNames() as $role) {
+                            $names[] = $role;
                         }
-                        echo implode(' | ', $names);
+                        echo $roles = implode(' | ', $names);
                     @endphp
                 </td>
                 <td>
                     <a type="button" class="btn btn-primary btn-sm"
-                            onclick='userEdit("{{ $user->name }}", "{{ $user->email }}", "{{ $user->id }}")'> {{-- 这里用了单引号,结果因为名字里有单引号,结果不起作用 --}}
+                            onclick='userEdit("{{ $user->name }}", "{{ $user->email }}", "{{ $user->id }}", "{{ $roles }}")'> {{-- 这里用了单引号,结果因为名字里有单引号,结果不起作用 --}}
                         <i class="fa fa-paint-brush" aria-hidden="true"></i>
                     </a>
                     <button type="button" class="btn btn-danger btn-sm"

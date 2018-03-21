@@ -17,10 +17,9 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 
-Route::resource('articles', 'ArticlesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::resource('articles', 'ArticlesController', ['only' => ['index', 'show', 'create']]);
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 
-Route::post('upload_image', 'ArticlesController@uploadImage')->name('articles.upload_image');
 Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
 Route::resource('tags', 'TagsController', ['only' => ['show']]);
 
@@ -69,4 +68,21 @@ Route::prefix('admin')->namespace('Admin')->group(function () {
     );
     Route::post('permissions/update', 'PermissionsController@update')->name('admin.permissions.update');
     Route::post('permissions/search', 'PermissionsController@search')->name('admin.permissions.search');
+
+
+    //Article
+    Route::resource('articles', 'ArticlesController',
+        [
+            'only' => ['index', 'create', 'store', 'edit', 'update', 'destroy'],
+            'names' => [
+                'index' => 'admin.articles.index',
+                'create' => 'admin.articles.create',
+                'store' => 'admin.articles.store',
+                'edit' => 'admin.articles.edit',
+                'update' => 'admin.articles.update',
+                'destroy' => 'admin.articles.destroy'
+            ]
+        ]
+    );
+    Route::post('upload_image', 'ArticlesController@uploadImage')->name('admin.articles.upload_image');
 });

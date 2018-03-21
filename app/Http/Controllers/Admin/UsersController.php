@@ -5,15 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Reply;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Role;
 
-class UsersController extends Controller
+class UsersController extends adminBaseController
 {
-
-    public  function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     public function update(Request $request)
     {
@@ -46,6 +41,25 @@ class UsersController extends Controller
             );
         }
 
+        $roles = Role::all();
+
+        $name = [];
+        foreach ($roles as  $role)
+        {
+            if($role->name === $request->role) {
+                $name[$role->name] = $role->id;
+            }
+        }
+
+        if(empty($name)){
+            return response()->json(
+                [
+                    'code' => 4,
+                    'message' => '没有这个角色'
+                ]
+            );
+        }
+
         if(!empty($request->password)) {
             $user->password = bcrypt($request->password);
         }
@@ -54,10 +68,13 @@ class UsersController extends Controller
         $user->email = $request->email;
         $res = $user->save();
 
+        $user->roles()->detach();
+        $user->roles()->attach($name[$request->role]);
+
         if(!$res) {
             return response()->json(
                 [
-                    'code' => 4,
+                    'code' => 5,
                     'message' => '更新失败'
                 ]
             );
@@ -116,6 +133,7 @@ class UsersController extends Controller
             ->where('id', $request->user_id)
             ->orWhere('name', 'like', "%{$request->user_name}%")
             ->orWhere('email', $request->email)
+            ->with('roles')
             ->paginate(20);
 
         $users->page = 20;

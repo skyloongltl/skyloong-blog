@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class TagsController extends Controller
+class TagsController extends adminBaseController
 {
     //
 }

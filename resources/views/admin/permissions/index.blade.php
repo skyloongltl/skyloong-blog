@@ -9,7 +9,7 @@
                         权限
                     </h3>
                     <span class="pull-right">
-                            <a href="#" class="btn btn-primary">新建权限</a>
+                            <a onclick="createPermission()" class="btn btn-primary">新建权限</a>
                             <a class="btn btn-primary">筛选</a>
                         </span>
                 </div>
@@ -26,7 +26,7 @@
                     <a class="btn btn-default"
                        onclick="this.href='http://localhost:81/admin?page=' + document.getElementById('page').value">跳转</a>
                 </div>
-                @include('admin.home._permissions_list', ['permissions' => $permissions])
+                @include('admin.permissions._permissions_list', ['permissions' => $permissions])
             </div>
         </div>
 
@@ -38,4 +38,76 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
+@stop
+
+@section('scripts')
+    <script type="text/javascript">
+        function editPermission(name, id, guard_name) {
+            document.getElementById('sidebar').innerHTML =
+                '<div class="panel">\n' +
+                '                <div class="panel-heading">\n' +
+                '                    <h3>编辑</h3>\n' +
+                '                </div>\n' +
+                '                <div class="panel-body">\n' +
+                '                    <div id="edit-permission">\n' +
+                '                        <input type="hidden" name="_token" value="{{ csrf_token() }}">\n' +
+                '                        <input type="hidden" name="permission_id" value="' + id + '" class="form-control">\n' +
+                '                        <b>Name</b>\n' +
+                '                        <input type="text" name="permission_name" value="' + name + '" class="form-control">\n' +
+                '                        <b>guard_name</b>\n' +
+                '                        <input type="text" name="guard_name" value="' + guard_name + '" class="form-control">\n' +
+                '                        <br>\n' +
+                '                        <button onclick="updatePermission()" class="btn btn-primary">编辑</button>\n' +
+                '                    </div>\n' +
+                '                </div>\n' +
+                '            </div>'
+        }
+        
+        function updatePermission() {
+            var data = $('#edit-permission').find('input').map(function () {
+                return ($(this).attr("name") + '=' + $(this).val());
+            }).get().join("&");
+
+            $.ajax({
+                url: '{{ route('admin.permissions.update') }}',
+                type: 'POST',
+                async: true,
+                data: data,
+                dataType: 'json',
+                success: function (data, textStatus, jqXHR) {
+                    if(!data.code) {
+                        location.reload();
+                    }else {
+                        alert(data.message);
+                    }
+                    console.log(textStatus);
+                },
+                error: function (xhr, textStatus) {
+                    console.log(xhr);
+                    console.log(textStatus);
+                    console.log('error');
+                }
+            });
+        }
+        
+        function createPermission() {
+            document.getElementById('sidebar').innerHTML =
+                '<div class="panel">\n' +
+                '                <div class="panel-heading">\n' +
+                '                    <h3>新建权限</h3>\n' +
+                '                </div>\n' +
+                '                <div class="panel-body">\n' +
+                '                    <form action="{{ route("admin.permissions.store") }}" method="POST">\n' +
+                '                        <input type="hidden" name="_token" value="{{ csrf_token() }}">\n' +
+                '                        <b>Name</b>\n' +
+                '                        <input type="text" name="permission_name" value="" class="form-control">\n' +
+                '                        <b>guard_name</b>\n' +
+                '                        <input type="text" name="guard_name" value="web" class="form-control">\n' +
+                '                        <br>\n' +
+                '                        <button type="submit" class="btn btn-primary">添加</button>\n' +
+                '                    </form>\n' +
+                '                </div>\n' +
+                '            </div>'
+        }
+    </script>
 @stop

@@ -8512,7 +8512,8 @@ body {
 .admin-users-search-page .navbar-fixed-top ul hr,
 .admin-roles-index-page .navbar-fixed-top ul hr,
 .admin-roles-search-page .navbar-fixed-top ul hr,
-.admin-permissions-index-page .navbar-fixed-top ul hr {
+.admin-permissions-index-page .navbar-fixed-top ul hr,
+.admin-articles-index-page .navbar-fixed-top ul hr {
   margin-top: 2px;
   margin-bottom: 2px;
 }
@@ -8521,7 +8522,8 @@ body {
 .admin-users-search-page .content,
 .admin-roles-index-page .content,
 .admin-roles-search-page .content,
-.admin-permissions-index-page .content {
+.admin-permissions-index-page .content,
+.admin-articles-index-page .content {
   margin-top: 70px;
 }
 
@@ -8529,7 +8531,8 @@ body {
 .admin-users-search-page .content table tr td,
 .admin-roles-index-page .content table tr td,
 .admin-roles-search-page .content table tr td,
-.admin-permissions-index-page .content table tr td {
+.admin-permissions-index-page .content table tr td,
+.admin-articles-index-page .content table tr td {
   text-align: center;
   height: 40px;
   line-height: 40px;
@@ -8539,46 +8542,86 @@ body {
 .admin-users-search-page .content table .head td,
 .admin-roles-index-page .content table .head td,
 .admin-roles-search-page .content table .head td,
-.admin-permissions-index-page .content table .head td {
+.admin-permissions-index-page .content table .head td,
+.admin-articles-index-page .content table .head td {
   text-align: center;
   height: 20px;
   line-height: 20px;
 }
 
 .admin-home-index-page .content .user-list .operation,
+.admin-home-index-page .content .article-list .operation,
 .admin-users-search-page .content .user-list .operation,
+.admin-users-search-page .content .article-list .operation,
 .admin-roles-index-page .content .user-list .operation,
+.admin-roles-index-page .content .article-list .operation,
 .admin-roles-search-page .content .user-list .operation,
-.admin-permissions-index-page .content .user-list .operation {
+.admin-roles-search-page .content .article-list .operation,
+.admin-permissions-index-page .content .user-list .operation,
+.admin-permissions-index-page .content .article-list .operation,
+.admin-articles-index-page .content .user-list .operation,
+.admin-articles-index-page .content .article-list .operation {
   margin: 10px 15px;
   -webkit-box-shadow: 0px 0px 1px #2E332F;
   box-shadow: 0px 0px 1px #2E332F;
 }
 
 .admin-home-index-page .content .user-list .operation a,
+.admin-home-index-page .content .article-list .operation a,
 .admin-users-search-page .content .user-list .operation a,
+.admin-users-search-page .content .article-list .operation a,
 .admin-roles-index-page .content .user-list .operation a,
+.admin-roles-index-page .content .article-list .operation a,
 .admin-roles-search-page .content .user-list .operation a,
-.admin-permissions-index-page .content .user-list .operation a {
+.admin-roles-search-page .content .article-list .operation a,
+.admin-permissions-index-page .content .user-list .operation a,
+.admin-permissions-index-page .content .article-list .operation a,
+.admin-articles-index-page .content .user-list .operation a,
+.admin-articles-index-page .content .article-list .operation a {
   margin: 5px 5px 5px 5px;
 }
 
 .admin-home-index-page .content .user-list .operation .btn-default,
+.admin-home-index-page .content .article-list .operation .btn-default,
 .admin-users-search-page .content .user-list .operation .btn-default,
+.admin-users-search-page .content .article-list .operation .btn-default,
 .admin-roles-index-page .content .user-list .operation .btn-default,
+.admin-roles-index-page .content .article-list .operation .btn-default,
 .admin-roles-search-page .content .user-list .operation .btn-default,
-.admin-permissions-index-page .content .user-list .operation .btn-default {
+.admin-roles-search-page .content .article-list .operation .btn-default,
+.admin-permissions-index-page .content .user-list .operation .btn-default,
+.admin-permissions-index-page .content .article-list .operation .btn-default,
+.admin-articles-index-page .content .user-list .operation .btn-default,
+.admin-articles-index-page .content .article-list .operation .btn-default {
   padding: 2px 5px;
 }
 
 .admin-home-index-page .content .user-list .operation span input,
+.admin-home-index-page .content .article-list .operation span input,
 .admin-users-search-page .content .user-list .operation span input,
+.admin-users-search-page .content .article-list .operation span input,
 .admin-roles-index-page .content .user-list .operation span input,
+.admin-roles-index-page .content .article-list .operation span input,
 .admin-roles-search-page .content .user-list .operation span input,
-.admin-permissions-index-page .content .user-list .operation span input {
+.admin-roles-search-page .content .article-list .operation span input,
+.admin-permissions-index-page .content .user-list .operation span input,
+.admin-permissions-index-page .content .article-list .operation span input,
+.admin-articles-index-page .content .user-list .operation span input,
+.admin-articles-index-page .content .article-list .operation span input {
   padding-left: 2px;
   border: 1px solid #C0C0C0;
   width: 30px;
   height: 28px;
+}
+
+.admin-articles-edit-page .navbar-fixed-top ul hr,
+.admin-articles-create-page .navbar-fixed-top ul hr {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.admin-articles-edit-page .content,
+.admin-articles-create-page .content {
+  margin-top: 70px;
 }
 

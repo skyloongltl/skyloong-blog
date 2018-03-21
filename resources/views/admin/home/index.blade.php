@@ -158,7 +158,7 @@
                 '</div>'
         }
 
-        function userEdit(name, email, id) {
+        function userEdit(name, email, id, roles) {
             document.getElementById('sidebar').innerHTML =
                 '<div class="panel">\n' +
                 '                <div class="panel-heading">\n' +
@@ -172,6 +172,8 @@
                 '                        <input type="text" id="user_name" name="user_name" class="form-control" value="' + name + '">\n' +
                 '                        <b>邮箱:</b>\n' +
                 '                        <input type="text" id="email" name="email" class="form-control" value="' + email + '">\n' +
+                '                        <b>角色：</b>' +
+                '                        <input type="text" name="role" class="form-control" value="' + roles  + '">' +
                 '                        <b>密码:</b>\n' +
                 '                        <input type="password" id="password" name="password" class="form-control">\n' +
                 '                        <b>确认密码:</b>\n' +

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('title', isset($article->id) ? '编辑文章' : '新建文章')
 
@@ -23,10 +23,10 @@
                     @include('common.error')
 
                     @if($article->id)
-                        <form action="{{ route('articles.update', $article->id) }}" method="POST" accept-charset="UTF-8">
+                        <form action="{{ route('admin.articles.update', $article->id) }}" method="POST" accept-charset="UTF-8">
                             <input type="hidden" name="_method" value="PUT">
                             @else
-                                <form action="{{ route('articles.store') }}" method="POST" accept-charset="UTF-8">
+                                <form action="{{ route('admin.articles.store') }}" method="POST" accept-charset="UTF-8">
                                     @endif
 
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -88,7 +88,7 @@
             var editor = new Simditor({
                 textarea: $('#editor'),
                 upload: {
-                    url: '{{ route('articles.upload_image') }}',
+                    url: '{{ route('admin.articles.upload_image') }}',
                     params: { _token: '{{ csrf_token() }}' },
                     fileKey: 'upload_file',
                     connectionCount: 3,
