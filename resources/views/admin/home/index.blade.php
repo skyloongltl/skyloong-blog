@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="row user-list">
+    <div class="row list">
         <div class="col-lg-8 col-md-12 col-sm-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -143,7 +143,7 @@
                 '                    <h3>筛选</h3>\n' +
                 '                </div>\n' +
                 '                <div class="panel-body">\n' +
-                '                    <form action="{{ route('admin.users.search') }}" method="POST">\n' +
+                '                    <form action="{{ route('admin.users.search') }}" method="GET">\n' +
                 '                        <input type="hidden" name="_token" value="{{ csrf_token() }}">' +
                 '                        <b>用户ID:</b>\n' +
                 '                        <input type="text" id="user_id" name="user_id" class="form-control">\n' +

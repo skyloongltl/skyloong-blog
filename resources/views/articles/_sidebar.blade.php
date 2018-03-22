@@ -1,13 +1,3 @@
-<div class="panel panel-default" id="sidebar">
-    <div class="panel-body">
-        <a href="{{ route('articles.create') }}" class="btn btn-success btn-block" aria-label="Left Align">
-            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 新建帖子
-        </a>
-    </div>
-
-    <a id="btn-sw"><i class="fa fa-angle-up fa-5x" ></i> </a>
-    {{-- <div id="btn-sw" onclick='show()'></div> --}}
-</div>
 
 @if(Cache::has('tags'))
 <div class="panel panel-default">

@@ -1,7 +1,6 @@
 .simditor-body, .article-body {
   font-size: 15px;
   line-height: 1.3;
-  overflow: hidden;
   line-height: 1.6;
   word-wrap: break-word;
   a {
@@ -201,10 +200,10 @@
     border-left: 4px solid #ddd;
   }
   blockquote>:first-child {
-    margin-top: 20;
+    margin-top: 20px;
   }
   blockquote>:last-child {
-    margin-bottom: 20;
+    margin-bottom: 20px;
   }
   blockquote {
     margin: 20px 0!important;

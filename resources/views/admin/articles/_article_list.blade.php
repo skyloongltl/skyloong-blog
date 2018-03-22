@@ -1,6 +1,6 @@
 <div class="panel-body">
     <table class="table">
-        <tr>
+        <tr class="head">
             <td>
                 <input id="select_all" type="checkbox" name="page_number"
                        value="select_all" onclick="selectAll()" aria-label="全选">

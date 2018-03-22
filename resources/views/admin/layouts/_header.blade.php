@@ -52,13 +52,13 @@
                         </li>
                         <hr>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.categories.index') }}">
                                 分类
                             </a>
                         </li>
                         <hr>
                         <li>
-                            <a href="#">
+                            <a href="{{ route('admin.tags.index') }}">
                                 标签
                             </a>
                         </li>

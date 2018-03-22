@@ -79,7 +79,7 @@ body {
   }
 }
 
-.articles-index-page, .categories-show-page, .tags-show-page {
+.articles-index-page, .categories-show-page, .tags-show-page, .root-page {
   .article-list {
     ul,li {
       list-style: none;
@@ -89,7 +89,7 @@ body {
 
 /* Article show Page */
 
-//@import "article_body";
+@import "article_body";
 
 .articles-show-page {
   .article-content {
@@ -211,7 +211,11 @@ body {
 .admin-roles-index-page,
 .admin-roles-search-page,
 .admin-permissions-index-page,
-.admin-articles-index-page
+.admin-articles-index-page,
+.admin-articles-edit-page,
+.admin-articles-create-page,
+.admin-categories-index-page,
+.admin-tags-index-page
 {
   .navbar-fixed-top {
     ul {
@@ -239,8 +243,7 @@ body {
       }
     }
 
-    .user-list,
-    .article-list
+    .list
     {
       .operation {
         margin: 10px 15px;
@@ -264,22 +267,6 @@ body {
         }
       }
     }
-  }
-}
-
-.admin-articles-edit-page,
-.admin-articles-create-page {
-  .navbar-fixed-top {
-    ul {
-      hr {
-        margin-top: 2px;
-        margin-bottom: 2px;
-      }
-    }
-  }
-
-  .content {
-    margin-top: 70px;
   }
 }
 

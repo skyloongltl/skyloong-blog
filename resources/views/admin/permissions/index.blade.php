@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    <div class="row user-list">
+    <div class="row list">
         <div class="col-lg-8 col-md-12 col-sm-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -24,7 +24,7 @@
                     /
                     {{ ceil($permissions->total()/$permissions->page) }}
                     <a class="btn btn-default"
-                       onclick="this.href='http://localhost:81/admin?page=' + document.getElementById('page').value">跳转</a>
+                       onclick="this.href='http://localhost:81/admin/permissions?page=' + document.getElementById('page').value">跳转</a>
                 </div>
                 @include('admin.permissions._permissions_list', ['permissions' => $permissions])
             </div>

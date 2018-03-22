@@ -129,14 +129,16 @@ class UsersController extends adminBaseController
 
     public function search(Request $request)
     {
+        $page = 15;
         $users = User::select('id', 'avatar', 'name', 'email')
             ->where('id', $request->user_id)
             ->orWhere('name', 'like', "%{$request->user_name}%")
             ->orWhere('email', $request->email)
             ->with('roles')
-            ->paginate(20);
+            ->paginate($page);
 
-        $users->page = 20;
+        $users->page = $page;
+        //TODO 自己写个搜索分页类．．．
 
         return view('admin.home.index', compact('users'));
         //return redirect()->route('admin.home.index', compact('users'));//并不行

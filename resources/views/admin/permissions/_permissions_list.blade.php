@@ -1,7 +1,8 @@
 <div class="panel-body">
     <table class="table">
         <tr class="head">
-            <td><input id="select_all" type="checkbox" name="page_number" value="select_all" onclick="selectAll()" aria-label="全选"></td>
+            <td><input id="select_all" type="checkbox" name="page_number"
+                       value="select_all" onclick="selectAll()" aria-label="全选"></td>
             <td>ID</td>
             <td>Name</td>
             <td>guard_name</td>

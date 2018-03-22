@@ -1,13 +1,14 @@
 <div class="panel-body">
     <table class="table">
         <tr class="head">
-            <td><input id="select_all" type="checkbox" name="page_number" value="select_all" onclick="selectAll()" aria-label="全选"></td>
-            <td>ID</td>
-            <td>Avatar</td>
-            <td>Name</td>
-            <td>Email</td>
-            <td>Identity</td>
-            <td>Operate</td>
+            <td class="col-lg-1"><input id="select_all" type="checkbox" name="page_number"
+                       value="select_all" onclick="selectAll()" aria-label="全选"></td>
+            <td class="col-lg-1">ID</td>
+            <td class="col-lg-1">Avatar</td>
+            <td class="col-lg-2">Name</td>
+            <td class="col-lg-3">Email</td>
+            <td class="col-lg-2">Identity</td>
+            <td class="col-lg-2">Operate</td>
         </tr>
         @foreach($users as $user)
             <tr>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="row article-list">
+    <div class="row list">
         <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -41,4 +41,70 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
+@stop
+
+@section('scripts')
+<script type="text/javascript">
+    var allBox = document.getElementsByName("article_id");
+
+    function selectAll() {
+        var all = document.getElementById("select_all");
+
+        if (all.checked) {
+            for (var i = 0; i < allBox.length; i++) {
+                if (allBox[i].type == 'checkbox') {
+                    allBox[i].checked = true;
+                }
+            }
+        } else {
+            for (var i = 0; i < allBox.length; i++) {
+                if (allBox[i].type == 'checkbox') {
+                    allBox[i].checked = false;
+                }
+            }
+        }
+    }
+
+    function batchDelete() {
+        var userArr = new Array();
+        var all = document.getElementById("select_all");
+        if (all.checked) {
+            for (var i = 0; i < allBox.length; i++) {
+                userArr.push(allBox[i].value);
+            }
+        } else {
+            for (var i = 0; i < allBox.length; i++) {
+                if (allBox[i].checked) {
+                    userArr.push(allBox[i].value);
+                }
+            }
+        }
+
+
+        var str = userArr.join("&");
+        $.ajax({
+            url: '{{ route('admin.articles.batch-destroy') }}',
+            type: 'POST',
+            async: true,
+            data: {
+                _token: '{{ csrf_token() }}',
+                article_id: str
+            },
+            dataType: 'json',
+            success: function (data, textStatus, jqXHR) {
+                if (data.code === 'true') {
+                    location.reload();
+                } else {
+                    alert(data.message);
+                }
+            },
+            error: function (xhr, textStatus) {
+                console.log('error');
+                console.log(xhr)
+                console.log(textStatus)
+
+            }
+        })
+    }
+</script>
 @stop

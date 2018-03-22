@@ -131,4 +131,21 @@ class ArticlesController extends adminBaseController
 
         return redirect()->route('articles.show', $article->id)->with('message', '文章发布成功．');
     }
+
+    public function batchDestroy(Request $request)
+    {
+        $article_ids = explode('&', $request->article_id);
+
+        if(Reply::whereIn('article_id', $article_ids)->delete())
+        {
+            $res = Article::whereIn('id', $article_ids)->delete();
+        }
+
+        return response()->json(
+            [
+                'code' => 0,
+                'message' => '删除了' . $res . '条数据'
+            ]
+        );
+    }
 }
