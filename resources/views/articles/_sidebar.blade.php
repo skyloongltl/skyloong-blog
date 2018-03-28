@@ -1,4 +1,7 @@
-
+<div>
+<a id="btn-sw"><i class="fa fa-angle-up fa-5x" ></i> </a>
+        {{-- <div id="btn-sw" onclick='show()'></div> --}}
+</div>
 @if(Cache::has('tags'))
 <div class="panel panel-default">
     <div class="panel-body">
@@ -7,7 +10,7 @@
         @foreach(Cache::get('tags') as $tag)
             <li>
                 <a href="{{ route('tags.show', [$tag->id]) }}" class="tag-name" style="background-color: {{ selectColor() }}">
-                {{ $tag->name }}
+                    {{ $tag->name }}
                 </a>
             </li>
         @endforeach

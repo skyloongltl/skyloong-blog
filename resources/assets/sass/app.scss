@@ -181,26 +181,24 @@ body {
   }
 }
 
-#sidebar {
-  #btn-sw {
-    position: fixed;
-    height: 60px;
-    width: 60px;
-    right: 30px;
-    bottom: 30px;
-    background: skyblue;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
-    outline:none;
-    z-index: 1;
+#btn-sw {
+  position: fixed;
+  height: 60px;
+  width: 60px;
+  right: 30px;
+  bottom: 30px;
+  background: skyblue;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  outline:none;
+  z-index: 1;
 
-    i {
-      position: fixed;
-      bottom: 30px;
-      right: 37.5px;
-      color: white;
-    }
+  i {
+    position: fixed;
+    bottom: 30px;
+    right: 37.5px;
+    color: white;
   }
 }
 

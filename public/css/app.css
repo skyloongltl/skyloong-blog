@@ -8943,7 +8943,7 @@ body {
   cursor: pointer;
 }
 
-#sidebar #btn-sw {
+#btn-sw {
   position: fixed;
   height: 60px;
   width: 60px;
@@ -8955,7 +8955,7 @@ body {
   z-index: 1;
 }
 
-#sidebar #btn-sw i {
+#btn-sw i {
   position: fixed;
   bottom: 30px;
   right: 37.5px;
